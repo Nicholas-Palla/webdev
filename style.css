@@ -1,28 +1,370 @@
-/* Lesson 1 starter CSS file.
-   Add styles here in later lessons. */
+:root {
+    --header-gradient: linear-gradient(to right, #11AC70, #0B566F, #0B516F);
+    --nav-link-color: rgb(56, 24, 199);
+    --nav-hover: #000000;
+    --primary-color: #0B566F;
+    --accent-color: #11AC70;
+    --bg-main: #ffffff;
+    --bg-light: #f9fbfb;
+    --text-main: #000000;
+    --border-color: #e2e8f0;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 
 body {
-   margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
 }
 
-header {
-   background-color: aqua;
-   border-bottom: 1px solid black;
+
+html {
+    scroll-behavior: smooth;
 }
 
-header p {
-   margin: 0;
+
+.hero {
+    background: linear-gradient(to right, rgba(17, 172, 112, 0.85), rgba(11, 86, 111, 0.9)),
+                url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1920&auto=format&fit=crop') center/cover;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    border-bottom: 1px solid black;
 }
+
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+
+.hero .subtitle {
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+
+.hero .tagline {
+    font-size: 1.3rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
 
 nav {
-   border-bottom: 1px solid #dbe4f4;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #c2c2c2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    padding: 15px 0;
 }
 
-a {
-   text-decoration: none;
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-header,
-nav {
-   padding: 10px 0;
+
+nav a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+
+nav a:hover {
+    color: var(--nav-hover);
+    background-color: rgba(17, 172, 112, 0.1);
+}
+
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+section {
+    scroll-margin-top: 100px;
+    background: white;
+    border-radius: 16px;
+    padding: 50px 40px;
+    margin-bottom: 40px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+
+.divider {
+    height: 4px;
+    width: 60px;
+    background: var(--accent-color);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+
+.lead-text {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+
+
+
+.stats-container, .grid-container, .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+
+.grid-container, .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+
+/* === STILI DELLE CARD === */
+/* Effetto di elevazione all'hover realizzato manipolando transform (asse Y) e box-shadow */
+.stat-card, .card {
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+
+.stat-card {
+    background: var(--header-gradient);
+    color: white;
+}
+
+
+.card {
+    background: white;
+    border: 1px solid var(--border-color);
+}
+
+
+.stat-card:hover, .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+.stat-icon { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+.stat-number { font-size: 2.5rem; font-weight: 700; display: block; line-height: 1; }
+.stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+
+.card-icon { font-size: 3rem; margin-bottom: 15px; }
+.card h3 { color: var(--primary-color); margin-bottom: 15px; }
+
+
+/* === GALLERIA FOTOGRAFICA === */
+/* Utilizzo di aspect-ratio per mantenere un rapporto d'aspetto costante per le immagini */
+.photo-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+
+/* Object-fit: cover previene la distorsione dell'immagine adattandola al contenitore */
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+.photo-card:hover img { transform: scale(1.1); }
+
+
+/* Overlay testuale nascosto in basso tramite translateY(100%), appare all'hover */
+.photo-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+
+.photo-card:hover .photo-overlay { transform: translateY(0); }
+
+
+/* === SEZIONE VIDEO === */
+.video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+
+/* Box segnaposto per simulare l'area di riproduzione video */
+.video-placeholder {
+    height: 250px;
+    background: #1a202c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+
+. { background: #c53030; }
+.video-card h3 { padding: 20px; text-align: center; color: var(--primary-color); }
+
+
+/* === TIMELINE (DIARIO) === */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px;
+}
+
+
+/* Lo pseudo-elemento ::before genera la linea verticale della timeline */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
+
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-item:last-child { margin-bottom: 0; }
+
+
+/* Posizionamento assoluto del nodo indicatore sulla linea verticale */
+.timeline-dot {
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    width: 22px;
+    height: 22px;
+    background: var(--accent-color);
+    border: 4px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg-main);
+}
+
+
+.timeline-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+
+.timeline-content h3 { color: var(--primary-color); margin-bottom: 10px; }
+
+
+/* === CITAZIONI E LISTE === */
+.quotes-container { display: flex; flex-direction: column; gap: 20px; }
+
+
+/* Stile tipografico e bordi per differenziare le citazioni dal testo standard */
+blockquote {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 0 12px 12px 0;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+
+.tips-list { list-style: none; max-width: 700px; margin: 0 auto; }
+
+
+.tips-list li {
+    background: white;
+    margin-bottom: 15px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    border-left: 3px solid var(--primary-color);
+    font-weight: 500;
+}
+
+
+/* === FOOTER === */
+footer {
+    background: var(--header-gradient);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }
