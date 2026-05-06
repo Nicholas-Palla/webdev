@@ -19,7 +19,8 @@
 
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'times', sans-serif;
+    font-size: large;
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.7;
@@ -177,9 +178,6 @@ section {
     gap: 30px;
 }
 
-
-/* === STILI DELLE CARD === */
-/* Effetto di elevazione all'hover realizzato manipolando transform (asse Y) e box-shadow */
 .stat-card, .card {
     padding: 30px;
     border-radius: 12px;
@@ -215,8 +213,6 @@ section {
 .card h3 { color: var(--primary-color); margin-bottom: 15px; }
 
 
-/* === GALLERIA FOTOGRAFICA === */
-/* Utilizzo di aspect-ratio per mantenere un rapporto d'aspetto costante per le immagini */
 .photo-card {
     position: relative;
     border-radius: 12px;
@@ -227,7 +223,6 @@ section {
 }
 
 
-/* Object-fit: cover previene la distorsione dell'immagine adattandola al contenitore */
 .photo-card img {
     width: 100%;
     height: 100%;
@@ -239,7 +234,6 @@ section {
 .photo-card:hover img { transform: scale(1.1); }
 
 
-/* Overlay testuale nascosto in basso tramite translateY(100%), appare all'hover */
 .photo-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -253,8 +247,6 @@ section {
 
 .photo-card:hover .photo-overlay { transform: translateY(0); }
 
-
-/* === SEZIONE VIDEO === */
 .video-card {
     background: white;
     border-radius: 12px;
@@ -263,7 +255,6 @@ section {
 }
 
 
-/* Box segnaposto per simulare l'area di riproduzione video */
 .video-placeholder {
     height: 250px;
     background: #1a202c;
@@ -278,8 +269,6 @@ section {
 . { background: #c53030; }
 .video-card h3 { padding: 20px; text-align: center; color: var(--primary-color); }
 
-
-/* === TIMELINE (DIARIO) === */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -288,7 +277,6 @@ section {
 }
 
 
-/* Lo pseudo-elemento ::before genera la linea verticale della timeline */
 .timeline::before {
     content: '';
     position: absolute;
@@ -303,7 +291,7 @@ section {
 .timeline-item:last-child { margin-bottom: 0; }
 
 
-/* Posizionamento assoluto del nodo indicatore sulla linea verticale */
+
 .timeline-dot {
     position: absolute;
     left: -39px;
@@ -329,11 +317,10 @@ section {
 .timeline-content h3 { color: var(--primary-color); margin-bottom: 10px; }
 
 
-/* === CITAZIONI E LISTE === */
 .quotes-container { display: flex; flex-direction: column; gap: 20px; }
 
 
-/* Stile tipografico e bordi per differenziare le citazioni dal testo standard */
+
 blockquote {
     background: white;
     padding: 25px 30px;
@@ -359,7 +346,7 @@ blockquote {
 }
 
 
-/* === FOOTER === */
+
 footer {
     background: var(--header-gradient);
     color: white;
@@ -368,3 +355,4 @@ footer {
     margin-top: 40px;
     font-size: 0.9rem;
 }
+
